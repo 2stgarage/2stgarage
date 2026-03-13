@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2st Garage Japan | 2-Stroke Cylinder Repair</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:  #0d0d0d;
+  --dark:   #161616;
+  --dark2:  #1f1f1f;
+  --dark3:  #2a2a2a;
+  --red:    #d42000;
+  --red2:   #ff2c00;
+  --white:  #f2ede6;
+  --dim:    #b0a99f;
+  --green:  #1db954;
+  --border: rgba(255,255,255,0.09);
+  --fs-body: 20px;
+  --fs-sm:   17px;
+  --fs-lbl:  13px;
+  --lh: 1.75;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'Source Serif 4',Georgia,serif;font-size:var(--fs-body);line-height:var(--lh);-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+.tag{font-family:'Oswald',sans-serif;font-size:var(--fs-lbl);letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:block;}
+.h2{font-family:'Oswald',sans-serif;font-size:clamp(34px,5vw,60px);font-weight:600;line-height:1.05;letter-spacing:.5px;margin-bottom:20px;}
+.red{color:var(--red2);}
+.dim{color:var(--dim);}
+section{padding:80px 0;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:64px;padding:0 36px;font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:filter .2s,transform .15s;width:100%;max-width:480px;}
+.btn:active{transform:scale(.98);}
+.btn-wa{background:#25D366;color:#fff;}
+.btn-wa:hover{filter:brightness(1.1);}
+.btn-email{background:var(--dark3);color:var(--white);border:2px solid rgba(255,255,255,.18);}
+.btn-email:hover{border-color:rgba(255,255,255,.4);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,13,13,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;letter-spacing:2px;color:var(--white);}
+.logo span{color:var(--red2);}
+.nav-btn{background:var(--red);color:#fff;font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;padding:10px 22px;min-height:44px;display:flex;align-items:center;transition:background .2s;}
+.nav-btn:hover{background:var(--red2);}
+
+/* ALERT */
+.alert-banner{background:rgba(212,32,0,.12);border-bottom:2px solid rgba(212,32,0,.4);padding:18px 28px;margin-top:64px;}
+.alert-banner .wrap{display:flex;align-items:flex-start;gap:16px;}
+.a-icon{font-size:26px;flex-shrink:0;margin-top:2px;}
+.a-text{font-size:var(--fs-sm);color:var(--dim);line-height:1.6;}
+.a-text strong{color:var(--white);font-size:var(--fs-body);}
+
+/* HERO */
+.hero{padding:80px 0 72px;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;top:0;right:-10%;width:55%;height:100%;background:radial-gradient(ellipse at 70% 40%,rgba(212,32,0,.10) 0%,transparent 65%);pointer-events:none;}
+.hero-pretitle{font-family:'Oswald',sans-serif;font-size:var(--fs-lbl);letter-spacing:4px;color:var(--red2);text-transform:uppercase;margin-bottom:20px;display:block;}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(44px,7vw,96px);font-weight:700;line-height:1.0;letter-spacing:1px;margin-bottom:28px;}
+.hero-lead{font-size:22px;color:var(--dim);max-width:620px;margin-bottom:40px;line-height:1.7;font-weight:300;}
+.hero-lead strong{color:var(--white);font-weight:600;}
+.hero-buttons{display:flex;flex-direction:column;gap:16px;margin-bottom:52px;}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;border-top:1px solid var(--border);padding-top:40px;}
+.stat-n{font-family:'Oswald',sans-serif;font-size:48px;font-weight:700;color:var(--red2);line-height:1;margin-bottom:6px;}
+.stat-l{font-size:var(--fs-sm);color:var(--dim);line-height:1.4;}
+
+/* EXAMPLES */
+.examples-sec{background:var(--dark);}
+.examples-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3px;margin-top:48px;}
+.ex-card{background:var(--dark2);overflow:hidden;}
+.ex-imgs{display:grid;grid-template-columns:1fr 1fr;gap:3px;position:relative;}
+.ex-img{aspect-ratio:1;background:var(--dark3);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;}
+.ex-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.ex-badge{position:absolute;top:10px;left:10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;padding:4px 10px;z-index:2;text-transform:uppercase;}
+.badge-b{background:rgba(0,0,0,.7);color:#888;}
+.badge-a{background:var(--red);color:#fff;}
+.ex-arrow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;background:var(--red);display:flex;align-items:center;justify-content:center;z-index:3;font-size:16px;color:#fff;}
+.ex-body{padding:24px;}
+.ex-title{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;margin-bottom:8px;letter-spacing:.5px;}
+.ex-desc{font-size:var(--fs-sm);color:var(--dim);line-height:1.6;}
+
+/* REPAIRABLE */
+.repair-sec{background:var(--black);}
+.repair-cols{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:48px;}
+.repair-col{background:var(--dark2);padding:36px 32px;}
+.repair-col-head{font-family:'Oswald',sans-serif;font-size:28px;font-weight:600;padding-bottom:20px;margin-bottom:24px;border-bottom:2px solid var(--border);letter-spacing:1px;}
+.repair-col-head.ok{color:var(--green);}
+.repair-col-head.no{color:#555;}
+.repair-items{list-style:none;display:flex;flex-direction:column;gap:16px;}
+.repair-item{display:flex;gap:14px;align-items:flex-start;font-size:var(--fs-body);color:var(--dim);line-height:1.55;}
+.ri-icon{flex-shrink:0;margin-top:3px;font-size:18px;}
+.ri-icon.ok{color:var(--green);}
+.ri-icon.no{color:#444;}
+.repair-note{margin-top:28px;background:rgba(255,255,255,.03);border:1px solid var(--border);padding:20px 22px;font-size:var(--fs-sm);color:var(--dim);line-height:1.65;}
+.repair-note strong{color:var(--white);}
+
+/* WHY */
+.why-sec{background:var(--dark);}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:3px;margin-top:48px;}
+.why-card{background:var(--dark2);padding:36px 30px;border-top:3px solid transparent;transition:border-color .3s;}
+.why-card:hover{border-color:var(--red);}
+.why-num{font-family:'Oswald',sans-serif;font-size:64px;font-weight:700;color:rgba(212,32,0,.13);line-height:1;margin-bottom:16px;}
+.why-title{font-family:'Oswald',sans-serif;font-size:22px;font-weight:500;margin-bottom:12px;color:var(--white);letter-spacing:.5px;}
+.why-body{font-size:var(--fs-sm);color:var(--dim);line-height:1.7;}
+
+/* PROCESS */
+.process-sec{background:var(--black);}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin-top:48px;border:1px solid var(--border);}
+.step{padding:32px 26px;border-right:1px solid var(--border);}
+.step:last-child{border-right:none;}
+.step-n{font-family:'Oswald',sans-serif;font-size:var(--fs-lbl);letter-spacing:3px;color:var(--red);margin-bottom:16px;display:block;}
+.step-title{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;margin-bottom:10px;letter-spacing:.5px;}
+.step-body{font-size:var(--fs-sm);color:var(--dim);line-height:1.65;}
+
+/* PRICING */
+.price-sec{background:var(--dark);}
+.price-card{max-width:600px;background:var(--dark2);border:1px solid var(--border);margin-top:48px;position:relative;overflow:hidden;}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),var(--red2));}
+.price-head{padding:36px 36px 28px;border-bottom:1px solid var(--border);}
+.price-lbl{font-family:'Oswald',sans-serif;font-size:var(--fs-lbl);letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:20px;display:block;}
+.price-amount{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;}
+.price-cur{font-size:26px;color:var(--dim);font-weight:300;}
+.price-n{font-family:'Oswald',sans-serif;font-size:88px;font-weight:700;line-height:1;color:var(--white);letter-spacing:2px;}
+.price-unit{font-size:20px;color:var(--dim);}
+.price-sub{font-size:var(--fs-sm);color:var(--dim);}
+.price-feats{padding:28px 36px;border-bottom:1px solid var(--border);}
+.price-feat{display:flex;align-items:flex-start;gap:14px;padding:10px 0;font-size:var(--fs-body);color:var(--dim);line-height:1.5;border-bottom:1px solid rgba(255,255,255,.04);}
+.price-feat:last-child{border-bottom:none;}
+.pf-check{color:var(--green);font-size:18px;flex-shrink:0;margin-top:2px;}
+.price-cta{padding:28px 36px;display:flex;flex-direction:column;gap:14px;}
+.free-badge{background:rgba(29,185,84,.08);border:1px solid rgba(29,185,84,.25);color:var(--green);text-align:center;padding:14px 20px;font-size:var(--fs-sm);font-weight:600;letter-spacing:.5px;}
+
+/* CONTACT */
+.contact-sec{background:var(--black);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:52px;align-items:start;}
+.c-methods{display:flex;flex-direction:column;gap:0;}
+.c-method{display:flex;gap:20px;align-items:flex-start;padding:28px 0;border-bottom:1px solid var(--border);}
+.c-method:first-child{padding-top:0;}
+.c-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.c-icon.wa{background:rgba(37,211,102,.1);color:#25D366;}
+.c-icon.em{background:rgba(212,32,0,.1);color:var(--red2);}
+.c-lbl{font-family:'Oswald',sans-serif;font-size:var(--fs-lbl);letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-bottom:6px;display:block;}
+.c-title{font-family:'Oswald',sans-serif;font-size:26px;font-weight:600;color:var(--white);margin-bottom:8px;letter-spacing:.5px;}
+.c-desc{font-size:var(--fs-sm);color:var(--dim);line-height:1.6;margin-bottom:16px;}
+.c-warning{background:rgba(212,32,0,.07);border:1px solid rgba(212,32,0,.25);border-left:3px solid var(--red);padding:20px 22px;margin-top:16px;font-size:var(--fs-sm);color:var(--dim);line-height:1.65;}
+.c-warning strong{color:var(--white);}
+.c-form{}
+.form-title{font-family:'Oswald',sans-serif;font-size:30px;font-weight:600;letter-spacing:.5px;margin-bottom:28px;}
+.fg{margin-bottom:20px;}
+.fl{display:block;font-family:'Oswald',sans-serif;font-size:var(--fs-lbl);letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px;}
+.fi,.fta{width:100%;background:var(--dark2);border:1px solid var(--border);color:var(--white);font-family:'Source Serif 4',serif;font-size:var(--fs-body);padding:16px 18px;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;min-height:58px;}
+.fi:focus,.fta:focus{border-color:rgba(212,32,0,.5);}
+.fta{resize:vertical;min-height:120px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fsub{display:block;width:100%;background:var(--red);color:#fff;font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-align:center;padding:20px;min-height:64px;border:none;cursor:pointer;margin-top:8px;transition:background .2s;text-decoration:none;}
+.fsub:hover{background:var(--red2);}
+
+/* FAQ */
+.faq-sec{background:var(--dark);}
+.faq-list{max-width:760px;margin-top:48px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{padding:24px 0;font-size:var(--fs-body);font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--white);line-height:1.5;user-select:none;}
+.faq-q:hover{color:var(--red2);}
+.faq-plus{font-family:'Oswald',sans-serif;font-size:28px;color:var(--red);flex-shrink:0;transition:transform .2s;width:32px;text-align:center;}
+.faq-a{font-size:var(--fs-body);color:var(--dim);line-height:1.75;padding-bottom:24px;display:none;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-plus{transform:rotate(45deg);}
+
+/* DISCLAIMER */
+.disc{padding:40px 0;border-top:1px solid var(--border);}
+.disc p{font-size:15px;color:#4a4a4a;line-height:1.7;max-width:800px;margin-bottom:8px;}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid var(--border);padding:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.f-logo{font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:2px;font-weight:700;}
+.f-logo span{color:var(--red2);}
+.f-copy{font-size:14px;color:#3a3a3a;}
+
+/* STICKY BAR */
+.sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(13,13,13,.97);border-top:1px solid var(--border);padding:14px 16px;gap:10px;}
+
+/* FADE */
+.fia{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.fia.vis{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .repair-cols{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;gap:48px;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .step{border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .step:nth-child(even){border-right:none;}
+}
+@media(max-width:600px){
+  :root{--fs-body:19px;--fs-sm:16px;}
+  nav{padding:0 16px;}
+  .wrap{padding:0 16px;}
+  section{padding:56px 0;}
+  .hero{padding:56px 0;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .stat-n{font-size:40px;}
+  .frow{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .step{border-right:none;border-bottom:1px solid var(--border);}
+  .price-head,.price-feats,.price-cta{padding-left:22px;padding-right:22px;}
+  .price-n{font-size:72px;}
+  .sticky-bar{display:flex;}
+  body{padding-bottom:90px;}
+  .repair-col{padding:26px 20px;}
+  .why-card{padding:28px 22px;}
+  .contact-grid{gap:36px;}
+  footer{padding:20px 16px;}
+}
+@media(max-width:380px){
+  :root{--fs-body:17px;--fs-sm:15px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">2<span>st</span> Garage <span style="font-size:12px;color:#444;letter-spacing:3px;font-weight:400;">JAPAN</span></div>
+  <a href="#contact" class="nav-btn">FREE EVALUATION</a>
+</nav>
+
+<div class="alert-banner">
+  <div class="wrap">
+    <div class="a-icon">⚠️</div>
+    <div class="a-text">
+      <strong>Shipping Notice</strong><br>
+      Due to shipping restrictions (conflict zones, air freight limitations on motorcycle parts), we may not be able to accept from all countries. Please include your country when you contact us — we will confirm availability immediately.
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-pretitle">2-Stroke Cylinder Specialist · Japan</span>
+    <h1 class="fia">Your cylinder may<br>still be <span class="red">repairable.</span></h1>
+    <p class="hero-lead fia">Scratches and seizure damage on 2-stroke cylinders can be repaired in most cases — <strong>without re-plating, without boring.</strong> Worldwide service from Japan. Free photo evaluation.</p>
+    <div class="hero-buttons fia">
+      <a href="https://wa.me/818092954238?text=Hi%2C%20I%20would%20like%20a%20free%20evaluation%20for%20my%20cylinder.%0A%0AName%3A%20%0ACountry%3A%20%0A%0APlease%20find%20attached%20photos%20of%20the%20damaged%20area." class="btn btn-wa" target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp — Free Evaluation
+      </a>
+      <a href="#contact" class="btn btn-email">✉ Send Photos by Email</a>
+    </div>
+    <div class="hero-stats fia">
+      <div class="stat"><div class="stat-n">40+</div><div class="stat-l">Years of Experience</div></div>
+      <div class="stat"><div class="stat-n">$300</div><div class="stat-l">Per Cylinder (Intro)</div></div>
+      <div class="stat"><div class="stat-n">5–10</div><div class="stat-l">Days Repair Time</div></div>
+      <div class="stat"><div class="stat-n">FREE</div><div class="stat-l">Photo Evaluation</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="examples-sec">
+  <div class="wrap">
+    <span class="tag fia">Repair Examples</span>
+    <h2 class="h2 fia">Before &amp; After</h2>
+    <p class="dim fia" style="max-width:580px;font-size:var(--fs-body);line-height:1.7;margin-bottom:0;">Real cylinders restored using our dry film coating method. No re-plating required.</p>
+    <div class="examples-grid fia">
+      <div class="ex-card">
+        <div class="ex-imgs">
+          <div class="ex-img"><span class="ex-badge badge-b">Before</span><img src="images/before1.jpg" alt="Damaged cylinder" onerror="this.outerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#444;font-size:13px;letter-spacing:1px;text-align:center;&quot;>DAMAGED<br>CYLINDER</div>'"></div>
+          <div class="ex-img"><span class="ex-badge badge-a">After</span><img src="images/after1.jpg" alt="Restored cylinder" onerror="this.outerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#555;font-size:13px;letter-spacing:1px;text-align:center;&quot;>RESTORED<br>CYLINDER</div>'"></div>
+          <div class="ex-arrow">→</div>
+        </div>
+        <div class="ex-body"><div class="ex-title">Seizure &amp; Deep Scoring</div><div class="ex-desc">Full circumference vertical scratches. Aluminum transfer removed. Restored without re-boring.</div></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-imgs">
+          <div class="ex-img"><span class="ex-badge badge-b">Before</span><img src="images/before2.jpg" alt="Plated cylinder damage" onerror="this.outerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#444;font-size:13px;letter-spacing:1px;text-align:center;&quot;>DAMAGED<br>CYLINDER</div>'"></div>
+          <div class="ex-img"><span class="ex-badge badge-a">After</span><img src="images/after2.jpg" alt="Plated cylinder restored" onerror="this.outerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#555;font-size:13px;letter-spacing:1px;text-align:center;&quot;>RESTORED<br>CYLINDER</div>'"></div>
+          <div class="ex-arrow">→</div>
+        </div>
+        <div class="ex-body"><div class="ex-title">Plated (Nikasil) Cylinder</div><div class="ex-desc">Plated cylinders repaired without full re-plating. Unique sand-blast preparation process.</div></div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-imgs">
+          <div class="ex-img"><span class="ex-badge badge-b">Before</span><img src="images/before3.jpg" alt="Corroded cylinder" onerror="this.outerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#444;font-size:13px;letter-spacing:1px;text-align:center;&quot;>DAMAGED<br>CYLINDER</div>'"></div>
+          <div class="ex-img"><span class="ex-badge badge-a">After</span><img src="images/after3.jpg" alt="Cylinder after repair" onerror="this.outerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#555;font-size:13px;letter-spacing:1px;text-align:center;&quot;>RESTORED<br>CYLINDER</div>'"></div>
+          <div class="ex-arrow">→</div>
+        </div>
+        <div class="ex-body"><div class="ex-title">Rust &amp; Corrosion</div><div class="ex-desc">Surface damage from long storage. Original bore dimensions preserved after repair.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="repair-sec">
+  <div class="wrap">
+    <span class="tag fia">Assessment</span>
+    <h2 class="h2 fia">What Can Be Repaired?</h2>
+    <div class="repair-cols fia">
+      <div class="repair-col">
+        <div class="repair-col-head ok">✓ Repairable</div>
+        <ul class="repair-items">
+          <li class="repair-item"><span class="ri-icon ok">✓</span>Deep vertical scratches from seizure</li>
+          <li class="repair-item"><span class="ri-icon ok">✓</span>Aluminum transfer from melted piston</li>
+          <li class="repair-item"><span class="ri-icon ok">✓</span>Seizure marks and scoring</li>
+          <li class="repair-item"><span class="ri-icon ok">✓</span>Rust and surface corrosion</li>
+          <li class="repair-item"><span class="ri-icon ok">✓</span>Worn bore (sleeve structurally sound)</li>
+          <li class="repair-item"><span class="ri-icon ok">✓</span>Cast iron sleeve cylinders</li>
+          <li class="repair-item"><span class="ri-icon ok">✓</span>Plated / Nikasil cylinders</li>
+        </ul>
+      </div>
+      <div class="repair-col">
+        <div class="repair-col-head no">✗ Not Repairable</div>
+        <ul class="repair-items">
+          <li class="repair-item"><span class="ri-icon no">✗</span>Cracks or fractures in cylinder wall</li>
+          <li class="repair-item"><span class="ri-icon no">✗</span>Structural damage to the sleeve</li>
+          <li class="repair-item"><span class="ri-icon no">✗</span>Bore size significantly changed</li>
+          <li class="repair-item"><span class="ri-icon no">✗</span>Broken ports or missing material</li>
+        </ul>
+        <div class="repair-note"><strong>Not sure?</strong><br>Send us photos for a free evaluation. We will confirm repairability within 24 hours — at no cost.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-sec">
+  <div class="wrap">
+    <span class="tag fia">Why Choose Us</span>
+    <h2 class="h2 fia">Why Repair Instead of Re-Plating?</h2>
+    <div class="why-grid fia">
+      <div class="why-card"><div class="why-num">01</div><div class="why-title">Original Cylinder Preserved</div><div class="why-body">No sleeve replacement. Your original OEM cylinder is restored — preserving the authenticity and value of your classic bike.</div></div>
+      <div class="why-card"><div class="why-num">02</div><div class="why-title">Works on Plated Cylinders</div><div class="why-body">Nikasil and plated cylinders can be repaired without full re-plating. A technique developed specifically for this purpose.</div></div>
+      <div class="why-card"><div class="why-num">03</div><div class="why-title">More Affordable</div><div class="why-body">Re-plating typically costs $250–400 or more and takes weeks. Our repair starts at $300 with faster turnaround.</div></div>
+      <div class="why-card"><div class="why-num">04</div><div class="why-title">Lasts the Life of the Sleeve</div><div class="why-body">When properly broken in, the repaired cylinder will last for the remaining service life of the sleeve. Not a temporary fix.</div></div>
+      <div class="why-card"><div class="why-num">05</div><div class="why-title">No Boring Required</div><div class="why-body">The dry film coating self-adjusts during break-in. Original bore dimensions are preserved.</div></div>
+      <div class="why-card"><div class="why-num">06</div><div class="why-title">40+ Years Experience</div><div class="why-body">Every cylinder is personally evaluated and repaired by a master engine builder with over 40 years of 2-stroke expertise.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="process-sec">
+  <div class="wrap">
+    <span class="tag fia">How It Works</span>
+    <h2 class="h2 fia">Simple 5-Step Process</h2>
+    <div class="steps fia">
+      <div class="step"><span class="step-n">Step 01</span><div class="step-title">Send Photos</div><div class="step-body">Send clear photos of the damaged area via WhatsApp or the email form below.</div></div>
+      <div class="step"><span class="step-n">Step 02</span><div class="step-title">Free Evaluation</div><div class="step-body">We confirm repairability and your country's shipping availability within 24 hours. No charge.</div></div>
+      <div class="step"><span class="step-n">Step 03</span><div class="step-title">Ship to Japan</div><div class="step-body">Send your cylinder to our workshop once we confirm we can receive it.</div></div>
+      <div class="step"><span class="step-n">Step 04</span><div class="step-title">Repair (5–10 days)</div><div class="step-body">Precision measurement, dry film coating, heat cure at 200°C, and quality inspection.</div></div>
+      <div class="step" style="border-right:none;"><span class="step-n">Step 05</span><div class="step-title">Return via EMS</div><div class="step-body">Returned with full tracking. Shipping cost charged at actual cost.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="price-sec">
+  <div class="wrap">
+    <span class="tag fia">Pricing</span>
+    <h2 class="h2 fia">Clear, Simple Pricing</h2>
+    <div class="price-card fia">
+      <div class="price-head">
+        <span class="price-lbl">Cylinder Repair · Per Cylinder</span>
+        <div class="price-amount"><span class="price-cur">USD</span><span class="price-n">300</span><span class="price-unit">/ cylinder</span></div>
+        <div class="price-sub">Introductory price · Shipping not included</div>
+      </div>
+      <div class="price-feats">
+        <div class="price-feat"><span class="pf-check">✓</span> Bore measurement and damage assessment</div>
+        <div class="price-feat"><span class="pf-check">✓</span> Multi-layer dry film coating</div>
+        <div class="price-feat"><span class="pf-check">✓</span> Heat cure at 200°C</div>
+        <div class="price-feat"><span class="pf-check">✓</span> Surface finishing and quality inspection</div>
+        <div class="price-feat"><span class="pf-check">✓</span> 6-month warranty</div>
+        <div class="price-feat"><span class="pf-check">✓</span> Works on cast iron AND plated cylinders</div>
+      </div>
+      <div class="price-cta">
+        <div class="free-badge">★ FREE photo evaluation — confirm before you ship anything</div>
+        <a href="https://wa.me/818092954238?text=Hi%2C%20I%20would%20like%20a%20free%20evaluation%20for%20my%20cylinder.%0A%0AName%3A%20%0ACountry%3A%20%0A%0APlease%20find%20attached%20photos%20of%20the%20damaged%20area." class="btn btn-wa" target="_blank" style="max-width:100%;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Get Free Evaluation via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-sec" id="contact">
+  <div class="wrap">
+    <span class="tag fia">Contact</span>
+    <h2 class="h2 fia">Send Photos for Free Evaluation</h2>
+    <div class="contact-grid fia">
+      <div class="c-methods">
+        <div class="c-method">
+          <div class="c-icon wa"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+          <div>
+            <span class="c-lbl">Recommended — Fastest</span>
+            <div class="c-title">WhatsApp</div>
+            <div class="c-desc">Send photos directly. Please include your <strong style="color:var(--white);">name and country.</strong></div>
+            <a href="https://wa.me/818092954238?text=Hi%2C%20I%20would%20like%20a%20free%20evaluation%20for%20my%20cylinder.%0A%0AName%3A%20%0ACountry%3A%20%0A%0APlease%20find%20attached%20photos%20of%20the%20damaged%20area." class="btn btn-wa" target="_blank" style="margin-top:4px;">Open WhatsApp →</a>
+          </div>
+        </div>
+        <div class="c-method">
+          <div class="c-icon em">✉</div>
+          <div>
+            <span class="c-lbl">Email</span>
+            <div class="c-title">Email Form</div>
+            <div class="c-desc">Use the form on the right. Response within 24 hours.</div>
+          </div>
+        </div>
+        <div class="c-warning"><strong>⚠ Important:</strong><br>Due to shipping restrictions and air freight limitations, we cannot accept from all countries. Always include your country — we will confirm right away.</div>
+      </div>
+
+      <div class="c-form">
+        <div class="form-title">Email Inquiry</div>
+        <div class="frow">
+          <div class="fg"><label class="fl">Your Name *</label><input type="text" class="fi" id="fn" placeholder="John Smith"></div>
+          <div class="fg"><label class="fl">Country *</label><input type="text" class="fi" id="fc" placeholder="USA / Spain / Italy…"></div>
+        </div>
+        <div class="fg"><label class="fl">Email Address *</label><input type="email" class="fi" id="fe" placeholder="you@example.com"></div>
+        <div class="fg"><label class="fl">Motorcycle Model</label><input type="text" class="fi" id="fb" placeholder="e.g. Yamaha RZ250, Kawasaki KH400, Honda NSR250"></div>
+        <div class="fg"><label class="fl">Describe the Damage</label><textarea class="fta" id="fd" placeholder="Tell us what happened — seizure, scratches, rust, etc. Attach photos when you send."></textarea></div>
+        <a href="#" class="fsub" onclick="doMail(event)">Send Inquiry →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec">
+  <div class="wrap">
+    <span class="tag fia">FAQ</span>
+    <h2 class="h2 fia">Common Questions</h2>
+    <div class="faq-list fia">
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can severely damaged cylinders really be repaired? <span class="faq-plus">+</span></div><div class="faq-a">Even if the damage looks very bad — deep scoring, aluminum transfer, full circumference scratches — we may still be able to repair it. Send us photos and we will evaluate for free within 24 hours.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Will it work on my Nikasil / plated cylinder? <span class="faq-plus">+</span></div><div class="faq-a">Yes. We developed a special sand-blast preparation process that allows the dry film coating to adhere to plated surfaces. This is not commonly available elsewhere.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long will the repair last? <span class="faq-plus">+</span></div><div class="faq-a">When properly broken in, the repaired cylinder will last for the remaining service life of the sleeve. This is a permanent restoration, not a temporary fix.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need new pistons and rings? <span class="faq-plus">+</span></div><div class="faq-a">We recommend using new pistons and rings after repair. OEM or high-quality aftermarket parts will give the best result during break-in.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does repair take? <span class="faq-plus">+</span></div><div class="faq-a">Repair takes 5 to 10 days at our workshop. Shipping time is additional and depends on your country.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does shipping cost? <span class="faq-plus">+</span></div><div class="faq-a">Shipping is not included in the $300 price. Return shipping is charged separately at actual cost via EMS with full tracking.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can you accept shipments from my country? <span class="faq-plus">+</span></div><div class="faq-a">Due to war zones, embargoed regions, and air freight restrictions, we cannot accept from all countries. Include your country in your first message — we will confirm immediately.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a warranty? <span class="faq-plus">+</span></div><div class="faq-a">Yes, 6 months. The coating is durable and will not peel or flake when the break-in procedure is followed correctly.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="disc"><div class="wrap">
+  <p>This service is intended for the restoration and preservation of historical or off-road vehicles.</p>
+  <p>Compliance with local environmental, road use, and import regulations is the responsibility of the vehicle owner.</p>
+  <p>All repairs are performed based on inspection and technical evaluation. Final performance may vary depending on engine condition and usage.</p>
+</div></div>
+
+<footer>
+  <div class="f-logo">2<span>st</span> Garage <span style="font-size:12px;color:#333;letter-spacing:3px;font-weight:400;">JAPAN</span></div>
+  <div class="f-copy">© 2025 2st Garage Japan · Worldwide 2-Stroke Cylinder Repair</div>
+</footer>
+
+<div class="sticky-bar">
+  <a href="https://wa.me/818092954238?text=Hi%2C%20I%20would%20like%20a%20free%20evaluation%20for%20my%20cylinder.%0A%0AName%3A%20%0ACountry%3A%20%0A%0APlease%20find%20attached%20photos%20of%20the%20damaged%20area." class="btn btn-wa" target="_blank" style="flex:1;max-width:none;font-size:17px;min-height:56px;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="#contact" class="btn btn-email" style="flex:1;max-width:none;font-size:17px;min-height:56px;">✉ Email</a>
+</div>
+
+<script>
+function doMail(e){
+  e.preventDefault();
+  var n=document.getElementById('fn').value.trim();
+  var c=document.getElementById('fc').value.trim();
+  var em=document.getElementById('fe').value.trim();
+  var b=document.getElementById('fb').value.trim();
+  var d=document.getElementById('fd').value.trim();
+  if(!n||!c||!em){alert('Please fill in Name, Country, and Email.');return;}
+  var sub=encodeURIComponent('Cylinder Repair Inquiry'+(b?' — '+b:''));
+  var body=encodeURIComponent('Name: '+n+'\nCountry: '+c+'\nEmail: '+em+'\nMotorcycle: '+b+'\n\nDamage:\n'+d+'\n\n(Please attach photos of the damaged cylinder)');
+  window.location.href='mailto:2stgarage.jp@gmail.com?subject='+sub+'&body='+body;
+}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:0.08});
+document.querySelectorAll('.fia').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
