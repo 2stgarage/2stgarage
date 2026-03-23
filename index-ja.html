@@ -4,22 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2stガレージ | 2ストシリンダー修復専門</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17993476123"></script>
-<script>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17993476123"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17993476123'); </script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-17993476123');
 </script>
-<!-- Event snippet for リードフォームの送信 conversion page -->
+<!-- Event snippet for リードフォームの送信 conversion -->
 <script>
-function trackConversion() {
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
   gtag('event', 'conversion', {
-    'send_to': 'AW-17993476123/eHWcCJqX8YIcEJvQ-oND',
-    'value': 1.0,
-    'currency': 'JPY'
+      'send_to': 'AW-17993476123/eHWcCJqX8YIcEJvQ-oND',
+      'value': 1.0,
+      'currency': 'JPY',
+      'event_callback': callback
   });
+  return false;
 }
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -356,7 +361,7 @@ footer strong{color:var(--white);}
             <textarea class="ft" placeholder="焼き付きの程度、アルミ付着の有無、使用状況など。詳しく書いていただくと診断がスムーズです。"></textarea>
           </div>
         </div>
-        <a href="mailto:2stgarage.jp@gmail.com" class="fsub" onclick="trackConversion()">メールを送る →</a>
+        <a href="mailto:2stgarage.jp@gmail.com" class="fsub" onclick="return gtag_report_conversion('mailto:2stgarage.jp@gmail.com')">メールを送る →</a>
         <div class="c-info-box" style="margin-top:20px;">
           <div class="c-info-title">📷 写真撮影のポイント</div>
           <div class="c-info-body">
